@@ -5,6 +5,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+AllCops:
+  NewCops: enable
+
 Metrics/LineLength:
   Description: 'Limit lines to 80 characters.'
   StyleGuide: '#120-character-limits'

@@ -21,16 +21,27 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'annotate'
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'rubocop-performance'
-  gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'faker'
+  gem 'rspec-rails', '~> 4.0'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
