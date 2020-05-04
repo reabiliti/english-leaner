@@ -1,0 +1,35 @@
+# These are all the cops that are enabled in the default configuration.
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+Metrics/LineLength:
+  Description: 'Limit lines to 80 characters.'
+  StyleGuide: '#120-character-limits'
+  Enabled: true
+  Max: 120
+  Exclude:
+    - 'db/seeds.rb'
+    - 'config/initializers/*.rb'
+
+Metrics/BlockLength:
+  Description: 'Avoid long blocks with many lines.'
+  Enabled: true
+  Exclude:
+    - '**/*_spec.rb'
+    - 'db/schema.rb'
+    - 'config/routes.rb'
+    - 'spec/factories/**/*.rb'
+    - 'config/initializers/*.rb'
+    - 'config/environments/*.rb'
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
