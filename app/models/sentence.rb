@@ -12,4 +12,7 @@
 #
 class Sentence < ApplicationRecord
   validates :english, :russian, presence: true
+
+  has_many :sentence_themes, dependent: :destroy
+  has_many :themes, through: :sentence_themes
 end

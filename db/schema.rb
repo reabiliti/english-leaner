@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_175804) do
+ActiveRecord::Schema.define(version: 2020_05_06_180553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sentence_themes", force: :cascade do |t|
+    t.bigint "sentence_id"
+    t.bigint "theme_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sentence_id"], name: "index_sentence_themes_on_sentence_id"
+    t.index ["theme_id"], name: "index_sentence_themes_on_theme_id"
+  end
 
   create_table "sentences", force: :cascade do |t|
     t.string "russian", null: false
@@ -28,4 +37,6 @@ ActiveRecord::Schema.define(version: 2020_05_06_175804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "sentence_themes", "sentences"
+  add_foreign_key "sentence_themes", "themes"
 end

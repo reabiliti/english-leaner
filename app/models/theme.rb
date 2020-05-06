@@ -11,4 +11,7 @@
 #
 class Theme < ApplicationRecord
   validates :name, presence: true
+
+  has_many :sentence_themes, dependent: :destroy
+  has_many :sentences, through: :sentence_themes
 end
