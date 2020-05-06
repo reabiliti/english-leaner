@@ -1,0 +1,66 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers-legacy
+        environment: # environment variables for primary container
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: circleci-demo-ruby
+          PGPASS: 'circleci-demo-ruby'
+          PGDATABASE: circleci_db
+          RAILS_ENV: test
+      - image: circleci/postgres:12.2-postgis-ram
+        environment: # environment variables for database
+          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_DB: circleci_db
+          POSTGRES_PASSWORD: 'circleci-demo-ruby'
+    steps:
+      - checkout
+
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      - save_cache:
+          name: Save Bundle Package Cache
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ~/.bundle
+
+      - run:
+          name: Create folder for result
+          command: mkdir test_results
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Copy database.yml
+          command: mv config/database.yml.sample config/database.yml
+
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+
+      - run:
+          name: Run tests
+          command: bundle exec rails default
+
+      - store_test_results:
+          path: test_results
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build
