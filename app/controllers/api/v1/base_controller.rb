@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class BaseController < ApplicationController
+    class BaseController < ActionController::API
       private
 
       def not_found_request
