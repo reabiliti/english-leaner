@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   namespace :api do
     namespace :v1 do
       resource :random_sentences, only: :show

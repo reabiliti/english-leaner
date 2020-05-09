@@ -3,6 +3,7 @@
 require 'simplecov'
 
 SimpleCov.start 'rails' do
+  add_filter 'app/admin/'
   minimum_coverage 20.00
 end
 
