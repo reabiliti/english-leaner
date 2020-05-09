@@ -30,3 +30,5 @@
 /.idea
 /frontend/.idea
 /coverage/
+/db/data/sentences.csv
+/lib/tasks/sync.rake
