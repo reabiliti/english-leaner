@@ -11,7 +11,7 @@ const Header = () => (
       Main Page
     </NavLink>
     <div className='navbar-nav'>
-      <NavItemLink toPath={TRANSLATION_TRAINING_PATH} label='Translation Training' />
+      <NavItemLink toPath={TRANSLATION_TRAINING_PATH} label='Translation Training (Beta)' />
     </div>
   </nav>
 )

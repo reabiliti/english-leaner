@@ -7,7 +7,9 @@ const SentenceRow = ({ children, label, labelStyles }) => {
 
   return (
     <div className='row pb-4'>
-      <div className={calculatedLabelStyles}>{label}</div>
+      <div className={calculatedLabelStyles}>
+        <strong>{label}</strong>
+      </div>
       <div className='col-md-11'>{children}</div>
     </div>
   )
