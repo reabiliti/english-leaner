@@ -6,8 +6,14 @@
     "@testing-library/jest-dom": "^5.7.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^10.1.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "clsx": "^1.1.0",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -37,6 +43,7 @@
     "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.5"
   },
   "husky": {
