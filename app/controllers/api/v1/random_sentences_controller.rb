@@ -8,7 +8,7 @@ module Api
 
         return not_found_request unless random_sentence
 
-        render json: random_sentence, status: :ok
+        render json: random_sentence, serializer: Api::V1::SentenceSerializer, status: :ok
       end
     end
   end
