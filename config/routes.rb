@@ -6,4 +6,8 @@ Rails.application.routes.draw do
       resource :random_sentences, only: :show
     end
   end
+
+  get '*path', to: 'web/fallback#index', constraints: lambda { |request|
+    !request.xhr? && request.format.html?
+  }
 end
