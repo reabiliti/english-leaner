@@ -6,7 +6,7 @@ const SentenceRow = ({ children, label, labelStyles }) => {
   const calculatedLabelStyles = clsx('col-md-1', labelStyles)
 
   return (
-    <div className='row pb-4'>
+    <div className='row pb-2'>
       <div className={calculatedLabelStyles}>
         <strong>{label}</strong>
       </div>

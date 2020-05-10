@@ -6,6 +6,8 @@ module Api
       type :sentence
 
       attributes :id, :english, :russian
+
+      has_many :themes, serializer: Api::V1::ThemeSerializer
     end
   end
 end
