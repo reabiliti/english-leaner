@@ -34,14 +34,14 @@ const TranslationTrainingPage = () => {
     <>
       <h4 className='pb-3'>
         <span className='mr-2'>Sentence</span>
-        <InfoBtnSm label='Next random' onClick={fetchData} />
+        <InfoBtnSm label='next random' onClick={fetchData} />
       </h4>
       {requestError && <Alert variant='danger'>{requestError}</Alert>}
       <SentenceRow label='Info:'>{getSentenceInfo(sentence)}</SentenceRow>
       <SentenceRow label='Russian:'>{pathOr('N/A', ['russian'], sentence)}</SentenceRow>
       <SentenceRow label='English:'>
         {isShowEnglish && pathOr('N/A', ['english'], sentence)}
-        {!isShowEnglish && <InfoBtnSm label='Show' onClick={() => setIsShowEnglish(true)} />}
+        {!isShowEnglish && <InfoBtnSm label='show' onClick={() => setIsShowEnglish(true)} />}
       </SentenceRow>
     </>
   )
