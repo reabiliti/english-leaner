@@ -1,34 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { pathOr } from 'ramda'
 
 import Alert from '../../atoms/Alert'
 import InfoBtnSm from '../../atoms/Buttons/InfoBtnSm'
 import SentenceRow from '../../atoms/Rows/SentenceRow'
 
-import { clientGetRandomSentence } from '../../../network/sentencesNetwork'
-import { getResponseDataField, getResponseErrorMessage } from '../../../helpers/networkHelper'
 import { getSentenceInfo } from '../../../helpers/sentencesHelper'
+import useRandomSentence from '../../../hooks/useRandomSentence'
 
 const TranslationTrainingPage = () => {
-  const [sentence, setSentence] = useState(null)
-  const [requestError, setRequestError] = useState(null)
-  const [isShowEnglish, setIsShowEnglish] = useState(false)
-
-  const fetchData = async () => {
-    const { response, error } = await clientGetRandomSentence()
-    if (response) {
-      setSentence(getResponseDataField('sentence')(response))
-      setIsShowEnglish(false)
-      setRequestError(null)
-    } else {
-      setSentence(null)
-      setRequestError(getResponseErrorMessage(error))
-    }
-  }
-
-  useEffect(() => {
-    fetchData().then()
-  }, [])
+  const { functions, state } = useRandomSentence()
+  const { isShowEnglish, requestError, sentence } = state
+  const { fetchData, setIsShowEnglish } = functions
 
   return (
     <>
