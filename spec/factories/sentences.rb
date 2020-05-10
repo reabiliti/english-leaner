@@ -12,5 +12,7 @@
 #
 FactoryBot.define do
   factory :sentence do
+    english { 'english_variant' }
+    russian { 'russian_variant' }
   end
 end
