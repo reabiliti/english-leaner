@@ -11,5 +11,6 @@
 #
 FactoryBot.define do
   factory :theme do
+    name { 'theme_name' }
   end
 end
