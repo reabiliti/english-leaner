@@ -33,6 +33,6 @@
 /node_modules/
 
 # Production
-/db/data/sentences.csv
+/db/data/
 /lib/tasks/sync.rake
 /public/
