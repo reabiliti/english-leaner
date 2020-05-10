@@ -18,11 +18,10 @@ ActiveAdmin.register_page 'Dashboard' do
   page_action :import_sentences, method: :post do
     file_path = params[:file]&.path
     if file_path
-      sentences_csv = CSV
-                      .open(file_path, headers: true, header_converters: :symbol, col_sep: ';')
-                      .map(&:to_h)
-      Sentence.destroy_all
-      Theme.destroy_all
+      sentences_csv = CSV.open(file_path, headers: true, header_converters: :symbol, col_sep: '|').map(&:to_h)
+      SentenceTheme.delete_all
+      Theme.delete_all
+      Sentence.delete_all
 
       sentences_csv.each do |sentence_csv|
         sentence_params = sentence_csv.slice(:russian, :english)
