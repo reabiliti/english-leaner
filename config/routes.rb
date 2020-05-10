@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :web do
+    resources :fallback, only: :index
+  end
+
   get '*path', to: 'web/fallback#index', constraints: lambda { |request|
     !request.xhr? && request.format.html?
   }
