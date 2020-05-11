@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch('PGDATABASE') { 'english_leaner_development' } %>
+  database: <%= ENV.fetch('PGDATABASE') { 'english_learner_development' } %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch('PGDATABASE') { 'english_leaner_test' } %>
+  database: <%= ENV.fetch('PGDATABASE') { 'english_learner_test' } %>
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
