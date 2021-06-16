@@ -10,7 +10,7 @@ gem 'active_model_serializers'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 gem 'rack-cors'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.0.4'
 gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
